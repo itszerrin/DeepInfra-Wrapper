@@ -57,11 +57,11 @@ Adjust the configuration settings in the `assets/config.json` file to customize 
 
 ### Chat Completion
 
-Send a POST request to `/chat/completions` with the following JSON payload:
+Send a POST request to `/chat/completions` with the following JSON payload (messages must be in OpenAI format):
 
 ```json
 {
-    "messages": ["Hello", "How are you?"],
+    "messages": [{"role": "user", "content": "Hello, World!"}],
     "model": "meta-llama/Llama-2-70b-chat-hf (keyword: gpt)",
     "max_tokens": 150,
     "top_p": 1,
