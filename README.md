@@ -83,6 +83,10 @@ Verify the API status by accessing the root route `/`.
 
 The API gracefully handles errors, such as forbidden requests, providing meaningful error messages.
 
+## Google Colab
+
+The server is also usable on [This Google Colab Link](https://colab.research.google.com/drive/15sQ6sjZJYUincL3otypxfH96aCfLQ7HZ?usp=sharing)
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
