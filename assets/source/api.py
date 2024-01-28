@@ -100,7 +100,7 @@ class Api(object):
         }
 
         # make a post request to the api
-        with self.session.post(self.url, headers=self.headers, json=data) as response:
+        with self.session.post(self.url, headers=self.headers, json=data, stream=True) as response:
 
             # raise for status
             response.raise_for_status()
