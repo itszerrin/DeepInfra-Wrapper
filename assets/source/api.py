@@ -72,6 +72,10 @@ class Api(object):
             {"id": "codellama/CodeLlama-34b-Instruct-hf (keyword: gpt)"},
             {"id": "jondurbin/airoboros-l2-70b-gpt4-1.4.1 (keyword: gpt)"},
             {"id": "mistralai/Mistral-7B-Instruct-v0.1 (keyword: gpt)"},
+            {"id": "cognitivecomputations/dolphin-2.6-mixtral-8x7b (keyword: gpt)"},
+            {"id": "lizpreciatior/lzlv_70b_fp16_hf (keyword: gpt)"},
+            {"id": "deepinfra/airoboros-70b (keyword: gpt)"},
+            {"id": "gpt2 (keyword: gpt)"},
         ]}
     
 

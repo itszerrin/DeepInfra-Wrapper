@@ -150,11 +150,26 @@ def forbidden():
         {'hint': 'please report issues on the github page'}
     ), 403
 
+@app.errorhandler(500)
+def internal_server_error():
+    
+        # return 500
+        return jsonify(
+    
+            {"status": False},
+            {'error': [
+    
+                {'message': 'Something went wrong, the API was unable to complete your request. Please try again later.'},
+                {'tpye': 'internal server error'},
+            ]},
+            {'hint': 'please report issues on the github page'}
+        ), 500
+
 # ---------------------------------------- START API ---------------------------------------- #
 
 # start the api
 if __name__ == "__main__":
 
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    app.run(debug=False, host="0.0.0.0", port=5000)
 
 # Path: app.py
