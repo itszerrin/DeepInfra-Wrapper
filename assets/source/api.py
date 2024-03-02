@@ -66,9 +66,6 @@ class Api(object):
         """get all models"""
 
         return {'data': [
-            {"id": "meta-llama/Llama-2-70b-chat-hf (keyword: gpt)"},
-            {"id": "meta-llama/Llama-2-13b-chat-hf (keyword: gpt)"},
-            {"id": "meta-llama/Llama-2-7b-chat-hf (keyword: gpt)"},
             {"id": "codellama/CodeLlama-34b-Instruct-hf (keyword: gpt)"},
             {"id": "jondurbin/airoboros-l2-70b-gpt4-1.4.1 (keyword: gpt)"},
             {"id": "mistralai/Mistral-7B-Instruct-v0.1 (keyword: gpt)"},
