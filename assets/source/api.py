@@ -73,6 +73,7 @@ class Api(object):
             {"id": "cognitivecomputations/dolphin-2.6-mixtral-8x7b (keyword: gpt)"},
             {"id": "lizpreciatior/lzlv_70b_fp16_hf (keyword: gpt)"},
             {"id": "deepinfra/airoboros-70b (keyword: gpt)"},
+            {"id": "DeepInfra/pygmalion-13b-4bit-128g (keyword: gpt)"},
         ]}
     
 
