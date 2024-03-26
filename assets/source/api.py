@@ -12,8 +12,11 @@ import secrets
 # to make requests
 import requests
 
+# type hints
+from typing import Generator, Any, Dict, List
+
 # ---------------------------------------- FUNCTIONS ---------------------------------------- #
-def non_streamed_format(model: str, content: str) -> dict[str]:
+def non_streamed_format(model: str, content: str) -> Dict[str, Any]:
 
     return {
         "object": "chat.completion",
@@ -38,7 +41,7 @@ class Api(object):
         
         self.url: str = "https://api.deepinfra.com/v1/openai/chat/completions"
 
-        self.headers = get_headers(UserAgent().random, secrets.randbelow(1000)) # get random headers
+        self.headers = get_headers(UserAgent().random, secrets.randbelow(500)) # get random headers
 
         self.session = requests.Session()
 
@@ -61,11 +64,12 @@ class Api(object):
         # codec for encoding and decoding
         self.codec = 'utf-8'
 
-    def get_models(self) -> dict[list[str, str]]:
+    def get_models(self) -> Dict[str, List[Dict[str, str]]]:
 
         """get all models"""
 
         return {'data': [
+            {"id": "codellama/CodeLlama-70b-Instruct-hf (keyword: gpt)"},
             {"id": "codellama/CodeLlama-34b-Instruct-hf (keyword: gpt)"},
             {"id": "jondurbin/airoboros-l2-70b-gpt4-1.4.1 (keyword: gpt)"},
             {"id": "mistralai/Mistral-7B-Instruct-v0.1 (keyword: gpt)"},
@@ -73,11 +77,10 @@ class Api(object):
             {"id": "cognitivecomputations/dolphin-2.6-mixtral-8x7b (keyword: gpt)"},
             {"id": "lizpreciatior/lzlv_70b_fp16_hf (keyword: gpt)"},
             {"id": "deepinfra/airoboros-70b (keyword: gpt)"},
-            {"id": "DeepInfra/pygmalion-13b-4bit-128g (keyword: gpt)"},
         ]}
     
 
-    def chat(self, messages: list, model: str, stream: bool = True) -> str:
+    def chat(self, messages: List[Dict[str, str]], model: str, stream: bool = True) -> Generator[Any, Any, Any]:
 
         """chat with the api"""
 
