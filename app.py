@@ -22,7 +22,7 @@ app = Flask(__name__)
 CORS(app)
 
 # ---------------------------------------- READ FROM CONFIG FILE ---------------------------------------- #
-with (open("assets/config,json", "r")) as f:
+with (open("assets/config.json", "r")) as f:
 
     config_file = loads(f.read())
 
