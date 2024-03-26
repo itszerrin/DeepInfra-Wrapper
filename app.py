@@ -136,7 +136,7 @@ def root():
 
 # ---------------------------------------- ERROR HANDLING ---------------------------------------- #
 @app.errorhandler(403)
-def forbidden():
+def forbidden(error):
 
     # return 403
     return jsonify(
@@ -151,7 +151,7 @@ def forbidden():
     ), 403
 
 @app.errorhandler(500)
-def internal_server_error():
+def internal_server_error(error):
     
         # return 500
         return jsonify(
