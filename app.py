@@ -7,6 +7,9 @@ from flask_cors import CORS
 # import the api class
 from assets.source.api import Api, non_streamed_format
 
+# import addon
+from assets.source.addons.translation import translate
+
 # logging module for debugging
 import logging
 
@@ -38,10 +41,7 @@ with (open("assets/config.json", "r")) as f:
 # ---------------------------------------- LOGGING CONFIG ---------------------------------------- #
 
 # set logging level
-logging.basicConfig(level=logging.DEBUG)
-
-# set format
-logging.basicConfig(format='%(asctime)s %(message)s')
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s')
 
 # ---------------------------------------- API ---------------------------------------- #
 
@@ -61,7 +61,7 @@ def chat():
     messages = data["messages"]
 
     # get model
-    model = data["model"]
+    model = translate(data["model"]) if config_file["use_addons"] else data["model"]
 
     # get max tokens
     max_tokens = data["max_tokens"]
@@ -136,7 +136,7 @@ def root():
 
 # ---------------------------------------- ERROR HANDLING ---------------------------------------- #
 @app.errorhandler(403)
-def forbidden(error):
+def forbidden():
 
     # return 403
     return jsonify(
@@ -151,7 +151,7 @@ def forbidden(error):
     ), 403
 
 @app.errorhandler(500)
-def internal_server_error(error):
+def internal_server_error():
     
         # return 500
         return jsonify(

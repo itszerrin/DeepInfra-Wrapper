@@ -1,3 +1,4 @@
 {
-    "use_global": true
+    "use_global": true,
+    "use_addons": true
 }
