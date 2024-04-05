@@ -43,23 +43,7 @@ class Api(object):
 
         self.headers = get_headers(UserAgent().random, secrets.randbelow(500)) # get random headers
 
-        self.session = requests.Session()
-
-        # write some configuration here
-        self.config = {
-            'temperature': 1,
-            'frequency_penalty': 0,
-            'presence_penalty': 0,
-            'repetition_penalty': 1,
-
-            'top_p': 1,
-            'top_k': 0,
-
-
-            'max_tokens': 150,
-            'stop': [''],
-
-        }
+        self.session = requests.Session() # create a session
 
         # codec for encoding and decoding
         self.codec = 'utf-8'
@@ -80,7 +64,18 @@ class Api(object):
         ]}
     
 
-    def chat(self, messages: List[Dict[str, str]], model: str, stream: bool = True) -> Generator[Any, Any, Any]:
+    def chat(
+            self,
+            messages: List[Dict[str, str]], 
+            model: str, 
+            stream: bool = True, 
+            temperature: int = 0.7, 
+            max_tokens: int = 150, 
+            top_p: float = 1.0, 
+            top_k: int = 50,
+            presence_penalty: float = 0.0,
+            frequency_penalty: float = 0.0
+        ) -> Dict[str, Any]:
 
         """chat with the api"""
 
@@ -90,36 +85,26 @@ class Api(object):
             'model': model,
             'stream': stream,
 
-            'temperature': self.config['temperature'],
-            'max_tokens': self.config['max_tokens'],
+            'temperature': temperature,
+            'max_tokens': max_tokens,
 
-            'top_p': self.config['top_p'],
-            'top_k': self.config['top_k'],
+            'top_p': top_p,
+            'top_k': top_k,
 
-            'presence_penalty': self.config['presence_penalty'],
-            'frequency_penalty': self.config['frequency_penalty'],
+            'presence_penalty': presence_penalty,
+            'frequency_penalty': frequency_penalty,
         }
 
         # make a post request to the api
-        with self.session.post(self.url, headers=self.headers, json=data, stream=True) as response:
+        response = self.session.post(self.url, headers=self.headers, json=data, stream=stream)
 
-            # raise for status
-            response.raise_for_status()
+        # raise for status
+        response.raise_for_status()
 
-            # iterate over the response
-            for chunk in response.iter_lines():
+        # if stream is False
+        if not stream:
+            return non_streamed_format(model, response.json()['choices'][0]['message']['content'])
 
-                # check if chunk is not empty
-                if chunk:
-
-                    # only yield if streaming is on
-                    if stream:
-
-                        # yield the chunk of the full response
-                        yield chunk # already in correct OpenAI format
-
-        # close the session and make a new one
-        self.session.close()
-        self.session = requests.Session()
+        return response.iter_lines()
 
 # Path: assets/source/api.py
