@@ -64,22 +64,35 @@ def chat():
     model = translate(data["model"]) if config_file["use_addons"] else data["model"]
 
     # get max tokens
-    max_tokens = data["max_tokens"]
+    max_tokens = data.get("max_tokens")
 
     # top p and top k
-    top_p = data["top_p"]
+    top_p = data.get("top_p")
+    top_k = data.get("top_k")
 
-    # change api config
-    api.config["max_tokens"] = max_tokens
+    # temperature, frequency penalty and presence penalty
+    temperature = data.get("temperature")
 
-    # change top p and top k
-    api.config["top_p"] = top_p
+    # frequency penalty
+    frequency_penalty = data.get("frequency_penalty")
+
+    # presence penalty
+    presence_penalty = data.get("presence_penalty")
 
     # streaming function. uses text/event-stream instead of application/json
     def stream():
 
         # generate chat
-        for chunk in api.chat(messages, model.removesuffix(" (keyword: gpt)"), stream=True):
+        for chunk in api.chat(messages, 
+                              model, 
+                              stream=True, 
+                              max_tokens=max_tokens, 
+                              top_p=top_p, 
+                              temperature=temperature, 
+                              frequency_penalty=frequency_penalty, 
+                              presence_penalty=presence_penalty,
+                                top_k=top_k
+        ):
 
             # yield chat
             #print(chunk)
@@ -106,8 +119,17 @@ def chat():
         # pre-init
         full: str = ""
 
-        # start 'streaming'
-        for chunk in api.chat(messages, model.removesuffix(" (keyword: gpt)"), stream=True):
+        # generate chat
+        for chunk in api.chat(messages, 
+                              model, 
+                              stream=True, 
+                              max_tokens=max_tokens, 
+                              top_p=top_p, 
+                              temperature=temperature, 
+                              frequency_penalty=frequency_penalty, 
+                              presence_penalty=presence_penalty,
+                                top_k=top_k
+        ):
 
             try:
 
