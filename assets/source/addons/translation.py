@@ -11,7 +11,7 @@ map = [
     {"gpt-4-1106-preview": "cognitivecomputations/dolphin-2.6-mixtral-8x7b"},
     {"gpt-4-0613": "lizpreciatior/lzlv_70b_fp16_hf"},
     {"gpt-3.5-turbo-0613": "deepinfra/airoboros-70b"},
-
+    {"davinci-002": "HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1"},
 ]
 
 def translate(model: str) -> str:
