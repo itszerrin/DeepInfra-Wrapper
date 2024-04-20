@@ -61,6 +61,7 @@ class Api(object):
             {"id": "cognitivecomputations/dolphin-2.6-mixtral-8x7b"},
             {"id": "lizpreciatior/lzlv_70b_fp16_hf"},
             {"id": "deepinfra/airoboros-70b"},
+            {"id": "HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1"}
         ]}
     
 
@@ -75,9 +76,26 @@ class Api(object):
             top_k: int = 50,
             presence_penalty: float = 0.0,
             frequency_penalty: float = 0.0
-        ) -> Dict[str, Any]:
+        ) -> Generator[str, Any, Any] | Dict[str, Any]:
 
-        """chat with the api"""
+        """
+        Chat with the DeepInfra models.
+
+        :param messages: list of messages
+        :param model: model name
+
+        :param stream: stream the response
+        :param temperature: temperature
+        :param max_tokens: max tokens
+
+        :param top_p: top p
+        :param top_k: top k
+        
+        :param presence_penalty: presence penalty
+        :param frequency_penalty: frequency penalty
+        
+        :return: generator or dict
+        """
 
         # compile the data
         data = {

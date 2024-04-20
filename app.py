@@ -5,10 +5,10 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 # import the api class
-from assets.source.api import Api, non_streamed_format
+from assets.source import api, non_streamed_format
 
 # import addon
-from assets.source.addons.translation import translate
+from assets.source.addons import * # here we only use 'create_cloudflare_tunnel' and 'translate' from the addons
 
 # logging module for debugging
 import logging
@@ -29,24 +29,21 @@ with (open("assets/config.json", "r")) as f:
 
     config_file = loads(f.read())
 
+    # copy constants over
+    DEBUG: bool = config_file.get("DEBUG", False)
+    PORT: int = config_file.get("PORT", 5000)
+    HOST: str = config_file.get("HOST", "0.0.0.0")
+
     # check if user wants to use a global server too
     if config_file["use_global"]:
 
-        # import neccessary modules
-        from flask_cloudflared import run_with_cloudflared
-
-        # run with cloudflared
-        run_with_cloudflared(app)
+        # create a cloudflare tunnel
+        create_cloudflare_tunnel(PORT)
 
 # ---------------------------------------- LOGGING CONFIG ---------------------------------------- #
 
 # set logging level
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s')
-
-# ---------------------------------------- API ---------------------------------------- #
-
-# create api instance
-api = Api()
 
 # ---------------------------------------- ROUTES ---------------------------------------- #
 
@@ -192,6 +189,6 @@ def internal_server_error():
 # start the api
 if __name__ == "__main__":
 
-    app.run(debug=False, host="0.0.0.0", port=5000)
+    app.run(debug=DEBUG, port=PORT, host=HOST)
 
 # Path: app.py

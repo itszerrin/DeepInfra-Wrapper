@@ -1,4 +1,8 @@
 {
+    "HOST": "0.0.0.0",
+    "PORT": 5000,
+    "DEBUG": false,
+    
     "use_global": true,
     "use_addons": true
 }
