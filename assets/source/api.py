@@ -53,15 +53,18 @@ class Api(object):
         """get all models"""
 
         return {'data': [
-            {"id": "codellama/CodeLlama-70b-Instruct-hf"},
-            {"id": "codellama/CodeLlama-34b-Instruct-hf"},
-            {"id": "jondurbin/airoboros-l2-70b-gpt4-1.4.1"},
-            {"id": "mistralai/Mistral-7B-Instruct-v0.1"},
-            {"id": "mistralai/Mixtral-8x7B-Instruct-v0.1"},
-            {"id": "cognitivecomputations/dolphin-2.6-mixtral-8x7b"},
-            {"id": "lizpreciatior/lzlv_70b_fp16_hf"},
-            {"id": "deepinfra/airoboros-70b"},
-            {"id": "HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1"}
+            {"id": "meta-llama/Meta-Llama-3-70B-Instruct", "context": 8192},
+            {"id": "meta-llama/Meta-Llama-3-8B-Instruct", "context": 8192},
+            {"id": "codellama/CodeLlama-34b-Instruct-hf", "context": 4096},
+            {"id": "jondurbin/airoboros-l2-70b-gpt4-1.4.1", "context": 4096},
+            {"id": "mistralai/Mistral-7B-Instruct-v0.1", "context": 4096},
+            {"id": "mistralai/Mixtral-8x7B-Instruct-v0.1", "context": 32768},
+            {"id": "mistralai/Mixtral-8x22B-Instruct-v0.1", "context": 65536},
+            {"id": "cognitivecomputations/dolphin-2.6-mixtral-8x7b", "context": 32768},
+            {"id": "lizpreciatior/lzlv_70b_fp16_hf", "context": 32768},
+            {"id": "deepinfra/airoboros-70b", "context": 4096},
+            {"id": "HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1", "context": 65536},
+            {"id": "microsoft/WizardLM-2-8x22B", "context": 65536},
         ]}
     
 
