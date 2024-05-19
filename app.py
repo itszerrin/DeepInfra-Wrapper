@@ -125,7 +125,7 @@ def chat():
                               temperature=temperature, 
                               frequency_penalty=frequency_penalty, 
                               presence_penalty=presence_penalty,
-                                top_k=top_k
+                              top_k=top_k
         ):
 
             try:
@@ -165,7 +165,7 @@ def forbidden(error):
 
             {'message': 'Something went wrong, the API was blocked from sending a request to the DeepInfra API. Please try again later.'},
             {'tpye': 'forbidden'},
-            {'error': f'{error'}}
+            {'error': f'{error}'}
         ]},
         {'hint': 'please report issues on the github page'}
     ), 403
@@ -181,7 +181,7 @@ def internal_server_error(error):
     
                 {'message': 'Something went wrong, the API was unable to complete your request. Please try again later.'},
                 {'tpye': 'internal server error'},
-                {'error': f'{error'}}
+                {'error': f'{error}'}
             ]},
             {'hint': 'please report issues on the github page'}
         ), 500
