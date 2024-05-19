@@ -155,7 +155,7 @@ def root():
 
 # ---------------------------------------- ERROR HANDLING ---------------------------------------- #
 @app.errorhandler(403)
-def forbidden():
+def forbidden(error):
 
     # return 403
     return jsonify(
@@ -165,12 +165,13 @@ def forbidden():
 
             {'message': 'Something went wrong, the API was blocked from sending a request to the DeepInfra API. Please try again later.'},
             {'tpye': 'forbidden'},
+            {'error': f'{error'}}
         ]},
         {'hint': 'please report issues on the github page'}
     ), 403
 
 @app.errorhandler(500)
-def internal_server_error():
+def internal_server_error(error):
     
         # return 500
         return jsonify(
@@ -180,6 +181,7 @@ def internal_server_error():
     
                 {'message': 'Something went wrong, the API was unable to complete your request. Please try again later.'},
                 {'tpye': 'internal server error'},
+                {'error': f'{error'}}
             ]},
             {'hint': 'please report issues on the github page'}
         ), 500
