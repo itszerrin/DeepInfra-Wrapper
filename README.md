@@ -62,7 +62,7 @@ Send a POST request to `/chat/completions` with the following JSON payload (mess
 ```json
 {
     "messages": [{"role": "user", "content": "Hello, World!"}],
-    "model": "meta-llama/Llama-2-70b-chat-hf (keyword: gpt)",
+    "model": "meta-llama/Llama-2-70b-chat-hf",
     "max_tokens": 150,
     "top_p": 1,
     "stream": true
@@ -72,8 +72,6 @@ Send a POST request to `/chat/completions` with the following JSON payload (mess
 ### Get Models
 
 Retrieve the available models by sending a GET request to `/models`.
-
-Notice: The model names will end with a `` (keyword: gpt)`` this is because some sites don't recognize the models if the keyword isn't included. Simply remove it in your code
 
 ### Check API Status
 
