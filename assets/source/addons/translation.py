@@ -11,7 +11,7 @@ map = [
     {"gpt-4-0314": "lizpreciatior/lzlv_70b_fp16_hf"},
     {"gpt-3.5-turbo-0613": "deepinfra/airoboros-70b"},
     {"davinci-002": "HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1"},
-    {"babbage-002": "microsoft/WizardLM-2-8x22B"},
+    {"gpt-4o": "microsoft/WizardLM-2-8x22B"},
     {"gpt-4-turbo-preview": "mistralai/Mixtral-8x22B-Instruct-v0.1"},
     {"gpt-3.5-turbo-instruct-0914": "meta-llama/Meta-Llama-3-70B-Instruct"},
     {"gpt-3.5-turbo-16k": "meta-llama/Meta-Llama-3-8B-Instruct"},
