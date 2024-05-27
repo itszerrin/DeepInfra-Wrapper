@@ -57,6 +57,7 @@ class Api(object):
             {"id": "meta-llama/Meta-Llama-3-8B-Instruct", "context": 8192},
             {"id": "codellama/CodeLlama-34b-Instruct-hf", "context": 4096},
             {"id": "jondurbin/airoboros-l2-70b-gpt4-1.4.1", "context": 4096},
+            {"id": "mistralai/Mistral-7B-Instruct-v0.2", "context": 32768},
             {"id": "mistralai/Mixtral-8x7B-Instruct-v0.1", "context": 32768},
             {"id": "mistralai/Mixtral-8x22B-Instruct-v0.1", "context": 65536},
             {"id": "cognitivecomputations/dolphin-2.6-mixtral-8x7b", "context": 32768},
