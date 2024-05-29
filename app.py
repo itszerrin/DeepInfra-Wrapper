@@ -55,8 +55,8 @@ def chat():
     data = request.get_json()
 
     # get messages
-    messages = data["messages"]
-
+    messages = message_translation(data["messages"]) if config_file["use_addons"] else data["messages"]
+        
     # get model
     model = translate(data["model"]) if config_file["use_addons"] else data["model"]
 
