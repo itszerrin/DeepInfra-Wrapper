@@ -1,7 +1,7 @@
 # ---------------------------------------- IMPORTS ---------------------------------------- #
 
 # import flask and flask_cors to host the api
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 
 # import the api class
@@ -20,6 +20,7 @@ from json import loads
 
 # create flask app
 app = Flask(__name__)
+app.template_folder = "assets/templates"
 
 # enable cors
 CORS(app)
@@ -151,7 +152,7 @@ def get_models():
 def root():
     
         # return root
-        return "<h1>API is online!</h1>"
+        return render_template("index.html")
 
 # ---------------------------------------- ERROR HANDLING ---------------------------------------- #
 @app.errorhandler(403)
