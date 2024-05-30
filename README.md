@@ -28,7 +28,7 @@ DeepInfra-Wrapper is a Python Flask project designed to provide a convenient and
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/DeepInfra-Wrapper.git
+   git clone https://github.com/Recentaly/DeepInfra-Wrapper.git
    ```
 
 2. Install dependencies:
