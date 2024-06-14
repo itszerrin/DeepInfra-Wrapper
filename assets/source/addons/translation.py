@@ -3,7 +3,7 @@ This addon is used to make OpenAI model names point to one of these models. The 
 """
 
 model_map = [
-    {"gpt-4-0613": ""},
+    {"gpt-4-0613": "mistralai/Mistral-7B-Instruct-v0.3"},
     {"davinci-002": ""},
     {"gpt-4": "microsoft/WizardLM-2-8x22B"},
     {"gpt-4o": "mistralai/Mistral-7B-Instruct-v0.2"},
