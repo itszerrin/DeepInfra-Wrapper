@@ -100,7 +100,7 @@ def chat():
         yield b'data: [DONE]'
 
     # check if user wants to stream
-    if data["stream"]:
+    if data.get("stream"):
 
         # log
         logging.info(f"Streaming requested for model {model}\n")
