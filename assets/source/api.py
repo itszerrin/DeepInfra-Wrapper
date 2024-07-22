@@ -62,10 +62,12 @@ class Api(object):
             {"id": "mistralai/Mixtral-8x7B-Instruct-v0.1", "context": 32768},
             {"id": "mistralai/Mixtral-8x22B-Instruct-v0.1", "context": 65536},
             {"id": "cognitivecomputations/dolphin-2.6-mixtral-8x7b", "context": 32768},
+            {"id": "cognitivecomputations/dolphin-2.9.1-llama-3-70b", "context": 8192},
             {"id": "lizpreciatior/lzlv_70b_fp16_hf", "context": 32768},
             {"id": "deepinfra/airoboros-70b", "context": 4096},
             {"id": "HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1", "context": 65536},
             {"id": "microsoft/WizardLM-2-8x22B", "context": 65536},
+            {"id": "Sao10K/L3-70B-Euryale-v2.1", "context": 8192}
         ]}
     
 
