@@ -55,19 +55,18 @@ class Api(object):
         return {'data': [
             {"id": "meta-llama/Meta-Llama-3-70B-Instruct", "context": 8192},
             {"id": "meta-llama/Meta-Llama-3-8B-Instruct", "context": 8192},
-            {"id": "codellama/CodeLlama-34b-Instruct-hf", "context": 4096},
             {"id": "jondurbin/airoboros-l2-70b-gpt4-1.4.1", "context": 4096},
-            {"id": "mistralai/Mistral-7B-Instruct-v0.2", "context": 32768},
             {"id": "mistralai/Mistral-7B-Instruct-v0.3", "context": 32768},
             {"id": "mistralai/Mixtral-8x7B-Instruct-v0.1", "context": 32768},
             {"id": "mistralai/Mixtral-8x22B-Instruct-v0.1", "context": 65536},
             {"id": "cognitivecomputations/dolphin-2.6-mixtral-8x7b", "context": 32768},
             {"id": "cognitivecomputations/dolphin-2.9.1-llama-3-70b", "context": 8192},
-            {"id": "lizpreciatior/lzlv_70b_fp16_hf", "context": 32768},
-            {"id": "deepinfra/airoboros-70b", "context": 4096},
-            {"id": "HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1", "context": 65536},
+            {"id": "lizpreciatior/lzlv_70b_fp16_hf", "context": 4096},
+            {"id": "microsoft/Phi-3-medium-4k-instruct", "context": 4096},
             {"id": "microsoft/WizardLM-2-8x22B", "context": 65536},
-            {"id": "Sao10K/L3-70B-Euryale-v2.1", "context": 8192}
+            {"id": "Sao10K/L3-70B-Euryale-v2.1", "context": 8192},
+            {"id": "google/gemma-2-9b-it", "context": 4096},
+            {"id": "google/gemma-2-27b-it", "context": 4096}
         ]}
     
 
