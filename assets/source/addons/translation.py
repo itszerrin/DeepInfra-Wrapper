@@ -12,6 +12,9 @@ model_map = [
     {"gpt-4-turbo-preview": "mistralai/Mixtral-8x22B-Instruct-v0.1"},
     {"gpt-4-1106-preview": "cognitivecomputations/dolphin-2.6-mixtral-8x7b"},
     {"gpt-3.5-turbo-16k": "meta-llama/Meta-Llama-3-8B-Instruct"},
+    {"gpt-3.5-turbo-1106": "meta-llama/Meta-Llama-3.1-405B-Instruct"},
+    {"gpt-3.5-turbo-0125": "meta-llama/Meta-Llama-3.1-70B-Instruct"},
+    {"gpt-3.5-turbo-instruct": "meta-llama/Meta-Llama-3.1-8B-Instruct"},
     {"gpt-3.5-turbo-instruct-0914": "meta-llama/Meta-Llama-3-70B-Instruct"},
 ]
 
