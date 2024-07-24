@@ -53,6 +53,9 @@ class Api(object):
         """get all models"""
 
         return {'data': [
+            {"id": "meta-llama/Meta-Llama-3.1-405B-Instruct", "context": 32768},
+            {"id": "meta-llama/Meta-Llama-3.1-70B-Instruct", "context": 128000},
+            {"id": "meta-llama/Meta-Llama-3.1-8B-Instruct", "context": 128000},
             {"id": "meta-llama/Meta-Llama-3-70B-Instruct", "context": 8192},
             {"id": "meta-llama/Meta-Llama-3-8B-Instruct", "context": 8192},
             {"id": "jondurbin/airoboros-l2-70b-gpt4-1.4.1", "context": 4096},
