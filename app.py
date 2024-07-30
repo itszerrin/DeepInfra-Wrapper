@@ -65,17 +65,17 @@ def chat():
     max_tokens = data.get("max_tokens", 150)
 
     # top p and top k
-    top_p = data.get("top_p", 0.99)
-    top_k = data.get("top_k", 50)
+    top_p = data.get("top_p", 0.90)
+    top_k = data.get("top_k", 0)
 
     # temperature, frequency penalty and presence penalty
-    temperature = data.get("temperature", 0.6)
+    temperature = data.get("temperature", 0.7)
 
     # frequency penalty
     frequency_penalty = data.get("frequency_penalty", 1)
 
     # presence penalty
-    presence_penalty = data.get("presence_penalty", 1)
+    presence_penalty = data.get("presence_penalty", 0)
 
     # streaming function. uses text/event-stream instead of application/json
     def stream():
